@@ -17,6 +17,6 @@ homepage = "https://github.com/acro5piano/docker-poetry"
 [tool.poetry.dependencies]
 python = "^3.6.2"
 
-firebase-admin = "2.3.0"
+googleapis-common-protos = "1.5.5"
 
 [tool.poetry.dev-dependencies]

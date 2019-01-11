@@ -2,6 +2,12 @@
 
 This repository is for research of Docker + Poetry errors.
 
+# How to run
+
+```
+docker build -t docker-poetry .
+```
+
 # googleapis-common-protos cannot be installed
 
 `poetry install` throws the following error:
@@ -28,9 +34,7 @@ Writing lock file
   - Installing googleapis-common-protos (1.5.5)
 
 [EnvCommandError]
-Command ['/root/.cache/pypoetry/virtualenvs/docker-poetry-py3.6/bin/pip', 'i
-nstall', '--no-deps', 'googleapis-common-protos==1.5.5'] errored with the fo
-llowing output:
+Command ['/root/.cache/pypoetry/virtualenvs/docker-poetry-py3.6/bin/pip', 'install', '--no-deps', 'googleapis-common-protos==1.5.5'] errored with the following output:
 Collecting googleapis-common-protos==1.5.5
   Downloading https://files.pythonhosted.org/packages/ae/94/a256572abf5d10347301c638d5df552fab1515497270726e6b56698d2e99/googleapis-common-protos-1.5.5.tar.gz
     Complete output from command python setup.py egg_info:
@@ -66,3 +70,18 @@ The command '/bin/sh -c poetry install' returned a non-zero code: 1
 
 This is only poetry install.
 `pip install firebase-admin` is okay.
+
+This is because poetry uses pip in virtualenv.
+
+`/root/.cache/pypoetry/virtualenvs/docker-poetry-py3.6/bin/pip`
+
+`pip install --upgrade pip` updates only `/usr/local/bin/pip` so running
+
+```
+poetry run pip install --upgrade pip
+```
+
+works.
+
+- https://github.com/googleapis/google-cloud-python/issues/2990
+- https://github.com/pypa/setuptools/issues/885
