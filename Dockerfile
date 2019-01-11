@@ -6,11 +6,8 @@ WORKDIR /app
 
 RUN curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python
 ENV PATH /root/.poetry/bin:$PATH
+RUN poetry config settings.virtualenvs.path /app/venv
 
-# HACK: これを入れないと poetry install に失敗する
-# RUN pip install googleapis-common-protos==1.5.5
-
-# ADD pyproject.toml poetry.lock /app/
 ADD pyproject.toml /app/
 
 RUN poetry run pip install --upgrade pip setuptools
