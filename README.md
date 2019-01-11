@@ -4,6 +4,8 @@ This repository is for research of Docker + Poetry errors.
 
 # googleapis-common-protos cannot be installed
 
+`poetry install` throws the following error:
+
 ```
 Step 9/10 : RUN poetry install
  ---> Running in 6841b43a0ef2
@@ -61,3 +63,6 @@ You should consider upgrading via the 'pip install --upgrade pip' command.
 install [--no-dev] [--dry-run] [-E|--extras EXTRAS] [--develop DEVELOP]
 The command '/bin/sh -c poetry install' returned a non-zero code: 1
 ```
+
+This is only poetry install.
+`pip install firebase-admin` is okay.
