@@ -1,0 +1,23 @@
+# vim:set ft=python :
+
+[tool.poetry]
+name = "docker-poetry"
+version = "0.1.0"
+description = "docker-poetry"
+
+authors = [
+    "Kazuya Gosho <ketsume0211@gmail.com>"
+]
+
+readme = "README.md"
+
+repository = "https://github.com/acro5piano/docker-poetry"
+homepage = "https://github.com/acro5piano/docker-poetry"
+
+[tool.poetry.dependencies]
+python = "^3.6.2"
+
+fcm-django = "0.2.19"
+firebase-admin = "2.3.0"
+
+[tool.poetry.dev-dependencies]
