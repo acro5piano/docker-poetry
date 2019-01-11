@@ -6,12 +6,11 @@ WORKDIR /app
 
 RUN curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python
 ENV PATH /root/.poetry/bin:$PATH
-RUN poetry config settings.virtualenvs.path /app/venv
+RUN poetry config settings.virtualenvs.in-project true
 
-ADD pyproject.toml /app/
+ADD pyproject.toml app.py /app/
 
 RUN poetry run pip install --upgrade pip setuptools
-
 RUN poetry install
 
-CMD ["bash"]
+CMD ["poetry", "run", "app.py"]

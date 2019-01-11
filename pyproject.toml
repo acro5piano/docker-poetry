@@ -18,5 +18,6 @@ homepage = "https://github.com/acro5piano/docker-poetry"
 python = "^3.6.2"
 
 googleapis-common-protos = "1.5.5"
+requests = "2.21.0"
 
 [tool.poetry.dev-dependencies]
